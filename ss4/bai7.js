@@ -23,7 +23,7 @@ else if(BMI>=35 && BMI<40)
 {
     console.log("Béo phì cấp độ 2!");
 }
-else if(BMi >=40)
+else if(BMI >=40)
 {
     console.log("Béo phì cấp độ 3!");  
 }
