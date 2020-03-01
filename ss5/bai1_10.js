@@ -106,5 +106,3 @@ console.log("Tong "+n+" phan tu dau tien trong day Fibonacci la: "+s5);
 
 
 
-
-

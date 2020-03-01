@@ -1,4 +1,4 @@
-let n = Number(prompt("Nhap vao mot so bat ki"));
+let n = parseInt(prompt("Nhap vao mot so bat ki"));
 let sqr = Math.sqrt(n);
 let index = 0;
 for(let i=2;i<=sqr;i++)
@@ -26,3 +26,6 @@ if(index===0 && n>=2){
 if(sqr**2===n){
     console.log("So "+n+"  cung la so chinh phuong!");
 }
+//break thoat khoi vong lap
+//continue bo qua 1 luot lap
+// den luot 2 gap continue thi bo qua chay luot thu 3

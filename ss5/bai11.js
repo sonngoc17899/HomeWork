@@ -5,12 +5,15 @@ while(a <= 0 || b <= 0)
     a = parseInt(prompt("Nhap lai chieu dai: "));
     b = parseInt(prompt("Nhap lai chieu rong: "));
 }
-let s = "*";
-for(let i=1;i<b;i++)
+let s = "";
+for(let i=1;i<=b;i++)
 {
     s += "*";
 }
+let result ='';
 for(let i=1;i<=a;i++)
 {
-    console.log(s);
+    result += s+ "\n";
 }
+console.log(result);
+
