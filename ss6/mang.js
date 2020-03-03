@@ -51,11 +51,12 @@ for(let i=0;i<a.length;i++)
 }
 //9
 let newName = prompt("Nhap 1 ten bat ki: ");
+// quy het ve chu thuong hoac quy het ve chu hoa
 let index = 0;
 for(let i=0;i<a.length;i++)
 {
     const element = a[i];
-    if(element === newName)
+    if(element.toLowerCase === newName.toLowerCase)
     {
         index++;
     }
@@ -71,7 +72,7 @@ let index1 = 0;
 console.log("In ra cac ten chua ki tu "+newKey+"(neu co!)");
 for(let i=0;i<a.length;i++)
 {
-    if(a[i].indexOf(newKey)>0)
+    if(a[i].indexOf(newKey.toUpperCase)>0 || a[i].indexOf(newKey.toLowerCase)>0)
     {
         j = i+1;
         index1++;

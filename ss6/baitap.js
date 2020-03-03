@@ -29,7 +29,8 @@ console.log("Tong cac so trong mang la: "+s);
 console.log("Trung binh cong cac so trong mang la: "+tbc);
 console.log("So lon nhat trong mang la: "+max);
 console.log("So nho nhat trong mang la: "+min);
-
+// arr.sort();
+//arr.reverse // dao nguoc thu tu
 for(let i=0;i<(a.length-1);i++)
 {
     for(let j=i+1;j<a.length;j++)
@@ -62,7 +63,9 @@ for(let i=0;i<a.length;i++)
     }
 }
 
-
+// 6 7 3 2 9
+// vong lap nho co 5 buoc
+// vong lap to co 4 buoc
 
 
 
