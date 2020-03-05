@@ -2,7 +2,7 @@ let a = ["Javascript", "Html", "Css", "Pascal"];
 let key = prompt("Nhap mot ki tu: ");
 for(let i=0;i<a.length;i++)
 {
-    if(a[i].indexOf(key)>=0 || a[i].indexOf(key.toLowerCase)>=0)
+    if(a[i].indexOf(key.toLocaleUpperCase())>=0 || a[i].indexOf(key.toLowerCase())>=0)
     {
         console.log(a[i]);        
     }
