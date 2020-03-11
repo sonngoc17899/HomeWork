@@ -14,7 +14,7 @@ let listPhone = [];
 let phone1 = {
         "name": "SamSung note",
         "price": 10e6,
-        "mauafacturer": "SamSung",
+        "manufacturer": "SamSung",
     }
 let phone2 = {
         "name": "Xiaomi note7",
@@ -76,7 +76,7 @@ for(let i=0;i<listPhone.length;i++)
 }
 // xoa dt o stt
 // let stt1 = parseInt(prompt("Nhap so thu tu can xoa: "));
-// while(stt<=0 || stt >listPhone.length){
+// while(stt<=1 || stt >listPhone.length){
 //     stt1 = parseInt(prompt("Nhap lai so thu tu can xoa: "));
 // }
 listPhone.slice(stt-1, 1);
@@ -86,7 +86,7 @@ console.log("Tìm tên của điện thoại vừa nhập nếu có!");
 for(let i=0;i<listPhone.length;i++)
 {
     const phone = listPhone[i];
-    if(phone.name === phoneName || phone.name.toLocaleLowerCase() === phoneName.toLocaleLowerCase())
+    if(phone.name.toLocaleLowerCase().includes(phoneName.toLocaleLowerCase()))
     {
       for (const key in phone) {
               const value = phone[key];
@@ -117,7 +117,8 @@ let findHsx = prompt("Nhập hãng sản xuất cần tìm: ");
 console.log("Hiển thị các điện thoại có hãng sản xuất vừa nhập(nếu có)!");
 for(let i=0;i<listPhone.length;i++){
     const phone = listPhone[i];
-    if(phone.manufacturer === findHsx){
+    if(phone.manufacturer.toLocaleLowerCase().includes(findHsx.toLocaleLowerCase()))
+    {
         for (const key in phone){
                 const value = phone[key];
                 console.log(key+": "+value);
@@ -139,6 +140,7 @@ for(let i=0;i<(listPhone.length-1);i++)
         }
     }
 }
+//listPhone[i].name.tolowercase().localcompare(listPhone[j].name.tolowercase()) > 0
 for(let i=0;i<listPhone.length;i++)
 {
     const phone = listPhone[i];
