@@ -25,6 +25,8 @@ let str = "Son, 20";
 let split = str.split(",");
 let name = split[0];
 let age = split[1];
+console.log(name);
+
 // forof lap tren tung gia tri cua 1 mang
 // forof su dung o mang
 // forin su dung o object
