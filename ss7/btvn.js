@@ -8,7 +8,19 @@
 // 6. Nhập 2 số, tìm các đt có giá nằm giữa 2 số đó
 // 7. Nhập 1 hãng SX, tìm các đt thuộc hãng sx đó
 // 8. sắp xếp DS đt theo tên, theo giá, (tăng, giảm dần)
-
+function hienThi(listPhone){
+    for(let i=0;i<listPhone.length;i++)
+    {
+        const phone = listPhone[i];
+        console.log(i+1);
+        for (const key in phone) 
+        {
+                const value = phone[key];
+                console.log(key+": "+value);
+        }
+        console.log("\t----\t----"); 
+    }
+}
 let listPhone = [];
 
 let phone1 = {
@@ -30,6 +42,7 @@ listPhone.push(phone1);
 listPhone.push(phone2);
 listPhone.push(phone3);
 // them dt moi
+function themMoi(a){
 let newName = prompt("Nhap ten cua dien thoai can them: ");
 let newPrice = prompt("Nhap gia cua dien thoai can them: ");
 let newHsx = prompt("Nhap hang san xuat can them: ");
@@ -39,17 +52,8 @@ let newphone = {
     "manufacturer": newHsx,
 }
 console.log("Hien thi lai danh sach dien thoai sau khi them dien thoai moi!");
-listPhone.push(newphone);
-for(let i=0;i<listPhone.length;i++)
-{
-    const phone = listPhone[i];
-    console.log(i+1);
-    for (const key in phone) 
-    {
-            const value = phone[key];
-            console.log(key+": "+value);
-    }
-    console.log("\t----\t----"); 
+listPhone.push(a);
+hienThi(a);
 }
 // sua thong tin dt
 let stt = parseInt(prompt("Nhap so thu tu: "));
@@ -62,18 +66,6 @@ while (!listPhone[stt-1].hasOwnProperty(editKey)){
   editKey = prompt("Bạn muốn sửa gì???");
 }
 listPhone[stt-1][editKey] = prompt("Nhap gia tri moi: ");
-console.log("Hien thi lai danh sach dien thoai sau khi them va sua key!");
-for(let i=0;i<listPhone.length;i++)
-{
-    const phone = listPhone[i];
-    console.log(i+1);
-    for (const key in phone) 
-    {
-            const value = phone[key];
-            console.log(key+": "+value);
-    }
-    console.log("\t----\t----"); 
-}
 // xoa dt o stt
 // let stt1 = parseInt(prompt("Nhap so thu tu can xoa: "));
 // while(stt<=1 || stt >listPhone.length){
@@ -82,7 +74,7 @@ for(let i=0;i<listPhone.length;i++)
 listPhone.slice(stt-1, 1);
 // tìm điện thoại theo tên
 let phoneName = prompt("Nhập một tên điện thoại bất kì: ");
-console.log("Tìm tên của điện thoại vừa nhập nếu có!");
+console.log("Tìm tên của điện thoại "+phoneName+" nếu có!");
 for(let i=0;i<listPhone.length;i++)
 {
     const phone = listPhone[i];
@@ -141,15 +133,5 @@ for(let i=0;i<(listPhone.length-1);i++)
     }
 }
 //listPhone[i].name.tolowercase().localcompare(listPhone[j].name.tolowercase()) > 0
-for(let i=0;i<listPhone.length;i++)
-{
-    const phone = listPhone[i];
-    console.log(i+1);
-    for (const key in phone) 
-    {
-            const value = phone[key];
-            console.log(key+": "+value);
-    }
-    console.log("\t----\t----"); 
-}
+hienThi(listPhone);
 
