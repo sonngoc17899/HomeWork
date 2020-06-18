@@ -1,74 +1,99 @@
-let listPhone = [
+
+  
+
+let products = [
     {
-        name: "SamSung Galaxy A71",
-        madeBy: "SamSung",
-        price: 12e6,
-        img: "https://cdn.tgdd.vn/Products/Images/42/210246/samsung-galaxy-a71-blue-600x600-1-400x400.jpg",
-        link: "detial.html",
+        id: 1,
+        name: 'Samsung Galaxy Note 10',
+        brand: 'Samsung',
+        price: 20e6,
+        img: 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/n/o/note_10_plus_xanh.jpg',
     },
     {
-        name: "SamSung Galaxy S20+",
-        madeBy: "SamSung",
-        price: 11e6,
-        img: "https://cdn.tgdd.vn/Products/Images/42/217936/samsung-galaxy-s20-plus-600x600-fix-400x400.jpg",
-        link: "detial.html",
+        id: 2,
+        name: 'iPhone 11',
+        brand: 'Apple',
+        price: 22e6,
+        img: 'https://clickbuy.com.vn/uploads/2019/09/thumb_11-ProMAX_4-600x600.jpg',
     },
     {
-        name: "Xiaomi Redmi Note 8",
-        madeBy: "Xiaomi",
-        price: 4790000,
-        img: "https://cdn.tgdd.vn/Products/Images/42/212374/xiaomi-redmi-note-8-128gb-black-400x400.jpg",
-        link: "detial.html",
+        id: 3,
+        name: 'Samsung Galaxy Note 10',
+        brand: 'Samsung',
+        price: 20e6,
+        img: 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/n/o/note_10_plus_xanh.jpg',
     },
     {
-        name: "Iphone 11 64GB",
-        madeBy: "Apple",
-        price: 21690000,
-        img: "https://cdn.tgdd.vn/Products/Images/42/153856/iphone-11-red-400x400.jpg",
-        link: "detial.html",
+        id: 4,
+        name: 'Samsung Galaxy Note 10',
+        brand: 'Samsung',
+        price: 20e6,
+        img: 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/n/o/note_10_plus_xanh.jpg',
     },
     {
-        name: "Iphone 11 Pro Max 512 GB",
-        madeBy: "Apple",
-        price: 42e6,
-        img: "https://cdn.tgdd.vn/Products/Images/42/210654/iphone-11-pro-max-512gb-gold-400x460.png",
-        link: "detial.html",
+        id: 5,
+        name: 'Samsung Galaxy Note 10',
+        brand: 'Samsung',
+        price: 20e6,
+        img: 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/n/o/note_10_plus_xanh.jpg',
+    },
+    {
+        id: 6,
+        name: 'Samsung Galaxy Note 10',
+        brand: 'Samsung',
+        price: 20e6,
+        img: 'https://cdn.cellphones.com.vn/media/catalog/product/cache/7/image/9df78eab33525d08d6e5fb8d27136e95/n/o/note_10_plus_xanh.jpg',
     }
-]
-function hienThi(a, b){
-for(let i=0;i<b.length;i++)
-{
-    let html = `<tr>
-    <td>${i+1}</td>
-    <td>${b[i].name}</td>
-    <td>${b[i].madeBy}</td>
-    <td>${b[i].price}</td>
-    <td><img src = "${b[i].img}" width = 100px></td>
-    <td><button onclick="button(event);"">Thông tin điện thoại!</button></td>
-    </tr>
-    `
-    a.innerHTML += html;
+];
+
+function showProducts(listProducts){
+    let tbody = document.getElementById('list-products');
+    tbody.innerHTML = '';
+
+    for (let i = 0; i < listProducts.length; i++) {
+        const product = listProducts[i];
+        
+        let html = `<tr>
+                        <td>${i + 1}</td>
+                        <td>
+                            <img src="${product.img}" alt="" width="100" height="100">
+                        </td>
+                        <td>${product.name}</td>
+                        <td>${product.brand}</td>
+                        <td>${product.price}đ</td>
+                        <td>
+                            <button class="btn btn-link" onclick="showDetail(${product.id})">Detail</button>
+                        </td>
+                    </tr>`;
+        
+        tbody.innerHTML += html;
+    }
 }
+
+showProducts(products);
+
+function showDetail(id){
+    //1: save productId selected
+    localStorage.setItem('selectedProductId', id);
+    localStorage.setItem('products', JSON.stringify(products));
+    //2: redirect
+    window.location.href = 'detail.html';
 }
-let ul = document.getElementById("Phone");
-hienThi(ul, listPhone);
-function button(e){
-    for(let i=0;i<listPhone.length;i++)
-    {   if(button[i]>=0){
-        window.location.href = "detail.html";
-        localStorage.setItem(`phone`, JSON.stringify(listPhone[i]));
-    }
-    }
+
+function search(){
+    let sName = document.getElementById('search-product-name').value;
+    let priceMin = parseInt(document.getElementById('search-product-price-min').value);
+    let priceMax = parseInt(document.getElementById('search-product-price-max').value);
+    let result = [];
+    result = products.filter(function (value){
+        return (sName.trim() !== '' && value.name.toLowerCase().includes(sName.toLowerCase()))
+        &&
+        (!isNaN(priceMin) && value.price >= priceMin
+            &&
+        !isNaN(priceMax) && value.price <= priceMax);
+    });
+    console.log(sName);
     
+    showProducts(result);
 }
-
-
-
-
-
-
-
-
-
-
 

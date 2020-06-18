@@ -3,25 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">;
+    <title>Products</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Danh sách  tất cả các điện thoại!</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>STT</th>
-                <th>Tên</th>
-                <th>Hãng</th>
-                <th>Giá</th>
-                <th>Ảnh</th>
-                <th>Thông tin điện thoại!</th>
-            </tr>
-        </thead>
-    <tbody id="Phone">
-    </tbody>
-    </table>
+    <div class="container">
+        <h1>List of products</h1>
+
+        <div class="row mb-3">
+            <form class="col-6">
+                <div class="form-group">
+                    <label for="search-product-name">Product name</label>
+                    <input type="text" id="search-product-name" class="form-control" placeholder="Search by name">
+                </div>
+                <div class="form-group">
+                    <label for="search-product-price">Product price</label>
+                    <input type="text" id="search-product-price-min" class="form-control" placeholder="Price min">
+                    <input type="text" id="search-product-price-max" class="form-control" placeholder="Price max">
+                </div>
+                <button type="button" onclick="search()" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+            
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="list-products">
+                
+            </tbody>
+        </table>
+        
+    </div>
+
     <script src="phone.js"></script>
+
 </body>
 </html>
